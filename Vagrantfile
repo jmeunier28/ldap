@@ -7,12 +7,9 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
   config.vm.box_check_update = false
   config.vm.provision :shell, path: "provision.sh"
-  config.vm.network "forwarded_port", guest: 80, host: 8080
-
-  # might want this at some point
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.ssh.insert_key = false 
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  # config.vm.network "private_network", ip: "192.168.50.4"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
